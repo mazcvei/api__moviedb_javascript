@@ -1,6 +1,7 @@
 const miModulo = (() => {
   const btnAnterior = document.getElementById("btnAnterior");
   const btnSiguiente = document.getElementById("btnSiguiente");
+  const API_KEY ='Cámbiame' ;
   let pagina = 1;
   let generos = [];
   let generos_cargados = false;
@@ -22,7 +23,7 @@ const miModulo = (() => {
     if (!generos_cargados) {
       try {
         const respuesta_genero = await fetch(
-          `https://api.themoviedb.org/3/genre/movie/list?api_key=fad7dc3ff06af4d0e301889237359c28&language=es`
+          `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=es`
         );
         console.log(respuesta_genero);
 
@@ -43,7 +44,7 @@ const miModulo = (() => {
     try {
       // con await, espera a que la petición termine para continuar la ejecucion, para implemenatrlo hay que hacer la funcion asincrona con "async".
       const respuesta = await fetch(
-        `https://api.themoviedb.org/3/movie/popular?api_key=fad7dc3ff06af4d0e301889237359c28&page=${pagina}&lenguage=es`
+        `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&page=${pagina}&lenguage=es`
       ); //devuelve una promesa
       if (respuesta.status === 200) {
         //con json() accedemos a la información json de la respuesta, tambien es asincrono y por eso se utilzia await
@@ -75,7 +76,6 @@ const miModulo = (() => {
 						<div class="average">${movie.vote_average} </div>
 						<div class="generos">${lista_generos}</div>
 					</div>
-
 				</div>
 				`;
         });
