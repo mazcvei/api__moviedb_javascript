@@ -1,7 +1,7 @@
 const miModulo = (() => {
   const btnAnterior = document.getElementById("btnAnterior");
   const btnSiguiente = document.getElementById("btnSiguiente");
-  const API_KEY ='Cámbiame' ;
+  const API_KEY = 'Cámbiame' ;
   let pagina = 1;
   let generos = [];
   let generos_cargados = false;
@@ -17,7 +17,6 @@ const miModulo = (() => {
       cargarPeliculas();
     }
   });
-
   const cargarPeliculas = async () => {
     //Obtenemos listado de todos los géneros la 1ª vez y almacenamos
     if (!generos_cargados) {
@@ -25,12 +24,9 @@ const miModulo = (() => {
         const respuesta_genero = await fetch(
           `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=es`
         );
-        console.log(respuesta_genero);
-
         if (respuesta_genero.status === 200) {
           const data_genero = await respuesta_genero.json();
           generos = data_genero.genres;
-
           generos_cargados = true;
         } else {
           console.log("Error al obtener géneros");
@@ -49,7 +45,6 @@ const miModulo = (() => {
       if (respuesta.status === 200) {
         //con json() accedemos a la información json de la respuesta, tambien es asincrono y por eso se utilzia await
         const data = await respuesta.json();
-
         let total_pages = data.total_pages;
         document.getElementById(
           "count_pages"
