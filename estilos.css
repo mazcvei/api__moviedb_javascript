@@ -1,0 +1,101 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	
+}
+html{
+	background: linear-gradient(to bottom, rgb(100, 230, 197), rgb(137, 228, 201));
+}
+body {
+	font-family: 'Montserrat', sans-serif;
+	color: #1d1d1d;
+}
+
+.contenedor {
+	width: 90%;
+	max-width: 1000px;
+	margin: 40px auto 100px auto;
+
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 40px;
+}
+@media (max-width:980px){
+	.contenedor {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+}
+@media (max-width:490px){
+	.contenedor {
+		margin: 40px auto 130px auto;
+		grid-template-columns: repeat(1, 1fr);
+	}
+
+}
+.contenedor .pelicula {
+	text-align: center;
+}
+
+.contenedor .pelicula .titulo {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.contenedor .pelicula .poster {
+	width: 100%;
+	margin-bottom: 10px;
+	border-radius: 15px;
+	box-shadow: 3px 3px 12px black;
+}
+
+.paginacion {
+	position: fixed;
+	bottom: 0;
+	background: #100a1f;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+	padding: 10px;
+}
+
+.paginacion button {
+	cursor: pointer;
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	height: 50px;
+	width: 110px;
+
+	background: #435e9f;
+	color: #fff;
+	border-radius: 100px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	transition: .3s ease all;
+}
+
+.paginacion button:hover {
+	background: #4face2;
+}
+.count_pages{
+	line-height: 50px;color:white
+}
+.datos{
+	display: flex;
+}
+.average{
+	background-color: rgb(250, 250, 69);
+	color:black;
+	width: fit-content;
+	height: fit-content;
+padding: 8px;
+border-radius: 3px;
+}
+.generos{
+	margin: auto;
+}
